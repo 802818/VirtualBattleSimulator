@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Virtual  Battle Simulator</title>
+    <head> 
+        <title>Virtual Battle Simulator</title>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="VBS_App.js"></script>
         <style type="text/css">
         body {
             background-color: black;
@@ -16,33 +18,10 @@
         </style>
     </head>
 <body>
+    
     <h1>Virtual Battle Simulator</h1>
     <script>
-        //Get text from input box - expression: $("input#firstName").val();
-        //Get text from input box: let firstNameX = $("input#firstName").val(); 
-        //Put text on page: $("p#response").text(firstNameX);
-        
-        //Create Object: let personal = { 
-        //key value pairs: firstName: "John", lastName: "Smith", email: "jsmith@gmail.com"}; personal.name; personal["lastName"];
-        
-        //Saving to the browser:
-        //localStorage.setItem("personData", personal);
-        //localStorage.getItem("personData");
-        //add click event listener to a button: $("button#create").click(function() { $("<h1>Hello!</h1>").appendTo("body"); });
-        function addHP() {
-            
-        }
-        var characters = [];
-        
-		var currentChar = {        
-			charName: $("#charName").text(),
-			HP: $("#HP").text() 
-		};
-        
-        $("characters").push($("currentChar"));
-        /*for (i=0; i<characters.length; i++) {
-            if (characters[i].firstName=wantedName)
-        }/*
+
     </script>
     <form>
         Name:<br>
@@ -53,20 +32,16 @@
             <option value="speed">Speed</option>
             <option value="magic">Magic</option>
         </select><br><br>
-        Ability Points Remaining: <span>10</span><br><br>
+        Ability Points Remaining: <span id = "ptsRemain">10</span><br><br>
         Health Points:<br>
-        <input type = "integer" size= "3" id = "HP">
-        <button type = "button" onclick = "addHP()" id = "plusHP">+</button>
-        <button type = "button" onclick = "subHP()" id = "minusHP">-</button><br><br>
+        <input type="integer" size="3" id="HP">
+        <button type = "button" id = "plusHP">+</button>
+        <button type = "button" id = "minusHP">-</button><br><br>
         Strength:<br>
         <input type = "integer" size= "3" id = "strength">
-        <button type = "button" onclick = "addStrength()" id = "plusStrength">+</button>
-        <button type = "button" onclick = "subStrength()" id = "minusStrength">-</button><br><br>
-        <button type = "button">Click Me</button>
+        <button type = "button" id = "plusStrength">+</button>
+        <button type = "button" id = "minusStrength">-</button><br><br>
+        <button type = "button" id = "save">Click Me</button>
     </form>
-<script>
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-</script>
 </body>
 </html>
