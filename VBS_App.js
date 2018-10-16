@@ -13,15 +13,20 @@ $(document).ready(function () {
         var pointsRemaining = 10;
         var HPoints = 0;
         var strengthPoints = 0;
+        var luckPoints = 0;
         var test = "why aren't we working bob?";
         
         $("#HP").val("0");
         $("#strength").val("0");
-            
+        $("#luck").val("0");
+    
         $("button#plusHP").click(addHP);
         $("button#minusHP").click(subHP);
         $("button#plusStrength").click(addStrength);
         $("button#minusStrength").click(subStrength);
+        $("button#plusLuck").click(addLuck);
+        $("button#minusLuck").click(subLuck);
+        $("button#save").click(saveChar);
     
         function addHP() {
             if (pointsRemaining > 0) {
@@ -59,18 +64,40 @@ $(document).ready(function () {
                 $("#ptsRemain").text(pointsRemaining);
             }
         }
+        function addLuck() {
+            if (pointsRemaining > 0) {
+                pointsRemaining -= 1;
+                luckPoints += 1;
+                console.log(test);
+                $("#luck").val(luckPoints);
+                $("#ptsRemain").text(pointsRemaining);
+            }
+        }
+        function subLuck() {
+            if (luckPoints > 0) {
+                pointsRemaining += 1;
+                luckPoints -= 1;
+                console.log(test);
+                $("#luck").val(luckPoints);
+                $("#ptsRemain").text(pointsRemaining);
+            }
+        }
     
     
         var characters = [];
         
-		var currentChar = {        
-			charName: $("#charName").text(),
-			HP: $("#HP").text(),
-            strength: $("#strength").text()
-		};
+		function saveChar() {
+            var currentChar = {        
+			     charName: $("#charName").text(),
+			     type: $("#type").val(),
+                 HP: $("#HP").text(),
+                 strength: $("#strength").text(),
+                 luck: $("#luck").text()
+		      };
         
-        $("characters").push($("currentChar"));
-        
+            characters.push($("currentChar"));
+            localStorage.setItem("characters", characters);
+        };
         //for (i=0; i<characters.length; i++) {
             //if (characters[i].firstName=wantedName)
         //}

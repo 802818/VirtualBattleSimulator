@@ -23,7 +23,8 @@
     <script>
 
     </script>
-    <form>
+    <div>
+        <form>
         Name:<br>
         <input type = "text" id = "charName"><br><br>
         Combat Type:<br>
@@ -34,14 +35,49 @@
         </select><br><br>
         Ability Points Remaining: <span id = "ptsRemain">10</span><br><br>
         Health Points:<br>
-        <input type="integer" size="3" id="HP">
+        <input type="integer" size="3" id="HP" readonly>
         <button type = "button" id = "plusHP">+</button>
         <button type = "button" id = "minusHP">-</button><br><br>
         Strength:<br>
-        <input type = "integer" size= "3" id = "strength">
+        <input type = "integer" size= "3" id = "strength" readonly>
         <button type = "button" id = "plusStrength">+</button>
         <button type = "button" id = "minusStrength">-</button><br><br>
-        <button type = "button" id = "save">Click Me</button>
+        Luck:<br>
+        <input type = "integer" size= "3" id = "luck" readonly>
+        <button type = "button" id = "plusLuck">+</button>
+        <button type = "button" id = "minusLuck">-</button><br><br>
+        <button type = "button" id = "save">Save</button><br>
     </form>
+    </div>
+    <div>
+        <form>
+        Fighter 1: <br><br>
+        Name:
+        <input type = "text" size="10" id = "charName1"><br><br>
+        Combat Type:
+        <input type = "text" size = "3" id = "charName1"> <br><br>
+        Health Points:
+        <input type="integer" size="3" id="HP1" readonly><br><br>
+        Strength:
+        <input type = "integer" size= "3" id = "strength1" readonly><br><br>
+        Luck:
+        <input type = "integer" size= "3" id = "luck1" readonly><br><br>
+    </form>
+    </div>
+    <div>
+        <form>
+        Fighter 2: <br><br>
+        Name:
+        <input type = "text" size="10" id = "charName2"><br><br>
+        Combat Type:
+        <input type = "text" size = "3" id = "charName2"> <br><br>
+        Health Points:
+        <input type="integer" size="3" id="HP2" readonly><br><br>
+        Strength:
+        <input type = "integer" size= "3" id = "strength2" readonly><br><br>
+        Luck:
+        <input type = "integer" size= "3" id = "luck2" readonly><br><br>
+    </form>
+    </div>
 </body>
 </html>
