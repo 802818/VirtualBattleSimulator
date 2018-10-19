@@ -23,7 +23,7 @@
     <script>
 
     </script>
-    <div>
+    <div id = "charMaker">
         <form>
         Name:<br>
         <input type = "text" id = "charName"><br><br>
@@ -46,16 +46,19 @@
         <input type = "integer" size= "3" id = "luck" readonly>
         <button type = "button" id = "plusLuck">+</button>
         <button type = "button" id = "minusLuck">-</button><br><br>
-        <button type = "button" id = "save">Save</button><br>
+        <button type = "button" id = "save">Save</button>
+        <button type = "button" id = "openBattle">Open Battle Interface</button><br><br>
     </form>
     </div>
-    <div>
+    <div id = "fighter1" style="display: none;">
         <form>
         Fighter 1: <br><br>
         Name:
-        <input type = "text" size="10" id = "charName1"><br><br>
+        <select id="charSelect1">
+        </select>
+        <button type = "button" id = "searchChar1">Search</button><br><br>
         Combat Type:
-        <input type = "text" size = "3" id = "charName1"> <br><br>
+        <input type = "text" size = "3" id = "type1" readonly> <br><br>
         Health Points:
         <input type="integer" size="3" id="HP1" readonly><br><br>
         Strength:
@@ -64,13 +67,15 @@
         <input type = "integer" size= "3" id = "luck1" readonly><br><br>
     </form>
     </div>
-    <div>
+    <div id = "fighter2" style="display: none;">
         <form>
         Fighter 2: <br><br>
         Name:
-        <input type = "text" size="10" id = "charName2"><br><br>
+        <select id="charSelect2">
+        </select>
+        <button type = "button" id = "searchChar2">Search</button><br><br>
         Combat Type:
-        <input type = "text" size = "3" id = "charName2"> <br><br>
+        <input type = "text" size = "3" id = "type2"> <br><br>
         Health Points:
         <input type="integer" size="3" id="HP2" readonly><br><br>
         Strength:
@@ -78,6 +83,11 @@
         Luck:
         <input type = "integer" size= "3" id = "luck2" readonly><br><br>
     </form>
+    </div>
+    <div id = "startFight" style="display: none;">
+        <form>
+        <button type = "button" id = "startTheFight">Start The Fight!</button>
+        </form>
     </div>
 </body>
 </html>

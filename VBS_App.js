@@ -9,13 +9,12 @@ $(document).ready(function () {
         //Saving to the browser:
         //localStorage.setItem("personData", personal);
         //localStorage.getItem("personData");
-        //add click event listener to a button: $("button#create").click(function() { $("<h1>Hello!</h1>").appendTo("body"); });
+        //add click event listener to a button: $("button#create").click(function() { $("<option>Hello!</option>").appendTo("#charSelect1"); });
         var pointsRemaining = 10;
         var HPoints = 0;
         var strengthPoints = 0;
         var luckPoints = 0;
         var test = "why aren't we working bob?";
-        
         $("#HP").val("0");
         $("#strength").val("0");
         $("#luck").val("0");
@@ -26,7 +25,12 @@ $(document).ready(function () {
         $("button#minusStrength").click(subStrength);
         $("button#plusLuck").click(addLuck);
         $("button#minusLuck").click(subLuck);
+        
         $("button#save").click(saveChar);
+        $("button#openBattle").click(openSim);
+        $("button#searchChar1").click(search1);
+        $("button#searchChar2").click(search2);
+        $("button#startTheFight").click(beginBattle);
     
         function addHP() {
             if (pointsRemaining > 0) {
@@ -83,21 +87,75 @@ $(document).ready(function () {
             }
         }
     
-    
         var characters = [];
         
 		function saveChar() {
             var currentChar = {        
-			     charName: $("#charName").text(),
+			     charName: $("#charName").val(),
 			     type: $("#type").val(),
-                 HP: $("#HP").text(),
-                 strength: $("#strength").text(),
-                 luck: $("#luck").text()
+                 HP: $("#HP").val(),
+                 strength: $("#strength").val(),
+                 luck: $("#luck").val()
 		      };
-        
-            characters.push($("currentChar"));
-            localStorage.setItem("characters", characters);
+            //Comment out the line below to perform the first save and then uncomment it.
+            characters = JSON.parse(localStorage.getItem("characters"));
+            console.log(characters);
+            characters.push(currentChar);
+            localStorage.setItem("characters", JSON.stringify(characters));
         };
+    
+        function openSim() {
+            characters = JSON.parse(localStorage.getItem("characters"));
+            fighter1.style.display = 'inline-block';
+            fighter2.style.display = 'inline-block';
+            startFight.style.display = 'inline';
+            for (i = 0; i < characters.length; i++) {
+                //$("<option>characters[i]</option>").appendTo("#charSelect1");
+                $('#charSelect1').append($('<option>', {
+                    value: characters[i].charName,
+                    text: characters[i].charName
+                }));
+                $('#charSelect2').append($('<option>', {
+                    value: characters[i].charName,
+                    text: characters[i].charName
+                }));
+            }
+            charMaker.style.display = 'none';
+        }
+    
+        function search1() {
+            var retrievedData = localStorage.getItem("characters");
+            characters = JSON.parse(retrievedData);
+            console.log(characters);
+            for(i=0; i < characters.length; i++) {
+                if ($("#charSelect1").val() == characters[i].charName) {
+                    $("#type1").val(characters[i].type);
+                    $("#HP1").val(characters[i].HP);
+                    $("#strength1").val(characters[i].strength);
+                    $("#luck1").val(characters[i].luck);
+                    console.log("WORKINGgggggg?");
+                }
+            }
+        }
+    
+        function search2() {
+            var retrievedData = localStorage.getItem("characters");
+            characters = JSON.parse(retrievedData);
+            for(i=0; i < characters.length; i++) {
+                if ($("#charSelect2").val() == characters[i].charName) {
+                    $("#type2").val(characters[i].type);
+                    $("#HP2").val(characters[i].HP);
+                    $("#strength2").val(characters[i].strength);
+                    $("#luck2").val(characters[i].luck);
+                    console.log("WORKINGgggggg?");
+                }
+            }
+        }
+    
+        function beginBattle() {
+            
+            
+        }
         //for (i=0; i<characters.length; i++) {
             //if (characters[i].firstName=wantedName)
         //}
